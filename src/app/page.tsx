@@ -1,9 +1,10 @@
-import Image from 'next/image'
+import Link from "next/link";
 
 export default function Home() {
+  // console.log(data)
   return (
     <main className="flex min-h-screen p-24">
-      <div>hi</div>
+      <Link href="/poets">شاعران</Link>
     </main>
-  )
+  );
 }
