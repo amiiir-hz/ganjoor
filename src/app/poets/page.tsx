@@ -1,6 +1,6 @@
 "use client";
-import { useReactTable } from "@tanstack/react-table";
-import Image from "next/image";
+
+import ShareTable from "@/components/share/ShareTable/ShareTable";
 import { useQuery } from "react-query";
 
 export default function Poets() {
@@ -8,73 +8,47 @@ export default function Poets() {
     fetch("https://api.ganjoor.net/api/ganjoor/poets").then((res) => res.json())
   );
 
-  const table = useReactTable({
-    data,
-    columns: COLOUMN,
-  });
-
-  // console.log(data)
+  if (isLoading) {
+    return (
+      <span className="text-5xl text-center mt-12 inline-block w-full">
+        لطفا کمی صبر کنید...
+      </span>
+    );
+  }
   return (
-    <main className="flex min-h-screen p-24">
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr>
-              {headerGroup.headers.map((header) => (
-                <th>{header.renderHeader()}</th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr>
-              {row.getVisibleCells().map((cell) => (
-                <td>{cell.renderCell()}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <main className="flex min-h-screen p-24 justify-center">
+      <ShareTable data={data ? data : undefined} columns={columns} />
     </main>
   );
 }
 
-const COLOUMN = [
+const columns = [
   {
-    Header: "نام",
-    accessor: "name",
-    id: "name",
+    header: "آیدی",
+    accessorKey: "id",
   },
   {
-    Header: "لقب",
-    accessor: "nickname",
-    id: "nickname",
+    header: "نام",
+    accessorKey: "name",
   },
   {
-    Header: "تولد",
-    accessor: "birthYearInLHijri",
-    id: "birthYearInLHijri",
+    header: "لقب",
+    accessorKey: "nickname",
   },
   {
-    Header: "وفات",
-    accessor: "deathYearInLHijri",
-    id: "deathYearInLHijri",
+    header: "تاریخ تولد",
+    accessorKey: "birthYearInLHijri",
   },
   {
-    Header: "محل تولد",
-    accessor: "birthPlace",
-    id: "birthPlace",
+    header: "تاریخ مرگ",
+    accessorKey: "deathYearInLHijri",
   },
   {
-    Header: "محل مرگ",
-    accessor: "deathPlace",
-    id: "deathPlace",
+    header: "محل تولد",
+    accessorKey: "birthPlace",
   },
   {
-    Header: "تصویر",
-    accessor: "imageUrl",
-    id: "imageUrl",
+    header: "محل مرگ",
+    accessorKey: "deathPlace",
   },
 ];
