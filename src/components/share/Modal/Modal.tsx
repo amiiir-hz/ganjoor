@@ -13,11 +13,11 @@ const ShareModal: React.FC<ShareModalProps> = ({
 }) => {
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 ${
+      className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-25  ${
         isOpen ? "block" : "hidden"
       }`}
     >
-      <div className="modal-content w-1/3 rounded-lg shadow-md relative">
+      <div className="modal-content w-2/3 md:w-1/3 rounded-lg shadow-md relative max-h-[85vh] overflow-scroll">
         <span
           className="close absolute top-2 right-4 text-gray-600 cursor-pointer text-2xl"
           onClick={onClose}

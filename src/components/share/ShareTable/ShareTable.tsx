@@ -113,7 +113,7 @@ export default function ShareTable(props: {
   type SortDirection = "asc" | "desc" | false;
 
   return (
-    <div className="self-center text-2xl text-text-200">
+    <div className="self-center text-sm sm:text-2xl text-text-200">
       <ShareInput
         value={filtering}
         onChange={handleSearch}
