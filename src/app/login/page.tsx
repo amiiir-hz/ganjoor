@@ -2,8 +2,10 @@
 
 import ShareButton from "@/components/share/Button/Button";
 import ShareInput from "@/components/share/Input/Input";
-import React, { useState } from "react";
-import { useMutation } from "react-query";
+import { useAuth } from "@/contexts/AuthContext";
+import { useFetch } from "@/hooks/useFetch";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 interface Credentials {
   username: string;
@@ -11,22 +13,6 @@ interface Credentials {
   clientAppName: string;
   language: string;
 }
-
-const loginUser = async (credentials: Credentials) => {
-  const response = await fetch("https://api.ganjoor.net/api/users/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  });
-
-  if (!response.ok) {
-    throw new Error("Login failed");
-  }
-
-  return response.json();
-};
 
 const LoginForm: React.FC = () => {
   const [credentials, setCredentials] = useState<Credentials>({
@@ -37,17 +23,25 @@ const LoginForm: React.FC = () => {
   });
   const [loginResponse, setLoginResponse] = useState<any>(null);
 
-  const { mutate, isLoading } = useMutation(loginUser, {
-    onSettled: (data) => {
-      setLoginResponse(data.token);
-      console.log(data);
-    },
-  });
+  const { loginDispatch, isLogin } = useAuth();
+
+  const { usePost } = useFetch();
+
+  const { data, isLoading, isError, mutate } = usePost("users/login");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     mutate(credentials);
   };
+
+  useEffect(() => {
+    if (data) {
+      setLoginResponse(data.token);
+      loginDispatch({ type: "LOGIN", id: data.user.id });
+      router.push("/");
+    }
+  }, [data]);
+  const router = useRouter();
 
   return (
     <form

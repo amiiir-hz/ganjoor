@@ -1,0 +1,19 @@
+1.Ensure your Next.js app is complete and works locally.
+
+2.Remove sensitive information from your code or use environment variables.
+
+3.Update project dependencies: npm update.
+
+4.Choose a Hosting Provider:
+Vercel: I choosed Vercel and based this deployment methodes on it because its compatibility with next but feel free to choose your own.
+
+5.Set Up Deployment Configuration:
+Create a deployment configuration file (e.g., vercel.json).
+
+6.Create a Repository:
+Set up a Git repository for your app.
+Commit and push your code to the repository.
+
+7.Connect Hosting Provider to Repository:
+Link your hosting provider to your Git repository.
+Configure Environment Variables:

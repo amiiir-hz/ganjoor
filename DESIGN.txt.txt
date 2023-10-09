@@ -1,0 +1,34 @@
+Project Design Document
+Project Overview
+Project Name: ganjoor-test
+Description: a test project with ganjoor apis
+
+Design Goals
+User Experience (UX): Create an intuitive and user-friendly interface.
+Visual Aesthetics: Design a visually appealing and consistent UI.
+Responsive Design: Ensure the app is responsive and works well on various screen sizes.
+Performance: Optimize the app for speed and efficiency.
+Accessibility: Implement accessibility best practices for a diverse user base.
+
+Color Palette
+
+Primary Colors:
+Primary 100: #586E75
+Primary 200: #859ca4
+Primary 300: #e8ffff
+
+Accent Colors:
+Accent 100: #CB4B16
+Accent 200: #ffe0a1
+
+Text Colors:
+Text 100: #073642
+Text 200: #38606d
+
+Background Colors:
+Background 100: #FDF6E3
+Background 200: #f3ecd9
+Background 300: #cac3b1
+
+Typography
+Font Family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

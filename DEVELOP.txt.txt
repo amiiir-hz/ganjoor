@@ -1,0 +1,47 @@
+Project Development Document
+Project Overview
+Project Name: ganjoor-test
+Description:  a test project with ganjoor apis
+Technologies Used
+Front-End Framework: React with Next.js
+Styling Framework: Tailwind CSS
+Type Checking: TypeScript
+State Management: Context API with Custom Hooks and Reducers
+Data Fetching: Axios, React Query
+Table Component: React Table
+Cookie Handling: js-cookie
+Project Structure
+src/: Source code directory.
+components/: React components.
+context/: Context providers and consumers.
+hooks/: Custom hooks.
+apss/: Next.js pages.
+styles/: Tailwind CSS styles and utility classes.
+public/: Static assets directory (images, fonts, etc.).
+package.json: Project dependencies and scripts.
+tsconfig.json: TypeScript configuration.
+next.config.js: Next.js configuration.
+Development Practices
+Coding Standards
+Follow consistent coding standards and naming conventions.
+Use TypeScript for type safety and improved development experience.
+Component Development
+Create reusable React components for UI elements.
+Utilize Tailwind CSS for styling components.
+Implement custom hooks for managing state and side effects.
+Use Context API and Reducers for global state management.
+Data Fetching
+Fetch data from APIs using Axios.
+Implement data caching and real-time updates with React Query.
+Table Component
+Use React Table for displaying tabular data.
+Customize table styles and behavior as needed.
+Cookie Handling
+Use js-cookie library for handling cookies.
+Implement user authentication and authorization logic.
+Routing
+Leverage Next.js's built-in routing for navigation between pages.
+Error Handling
+Use React Query's error handling capabilities.
+Version Control
+Maintain a Git repository for version control.

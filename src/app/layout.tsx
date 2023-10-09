@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ReactQueryProvider } from "./ReactQueryProvider";
 import Navbar from "@/components/layout/Navbar/Navbar";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <ReactQueryProvider>
-      <html lang="en" dir="rtl">
-        <body className={"bg-bg-100"}>
-          <Navbar />
-          {children}
-        </body>
-      </html>
+      <AuthProvider>
+        <html lang="en" dir="rtl">
+          <body className={"bg-bg-100"}>
+            <Navbar />
+            {children}
+          </body>
+        </html>
+      </AuthProvider>
     </ReactQueryProvider>
   );
 }

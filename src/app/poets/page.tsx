@@ -1,12 +1,11 @@
 "use client";
 
 import ShareTable from "@/components/share/ShareTable/ShareTable";
-import { useQuery } from "react-query";
+import { useFetch } from "@/hooks/useFetch";
 
 export default function Poets() {
-  const { isLoading, error, data } = useQuery("myData", () =>
-    fetch("https://api.ganjoor.net/api/ganjoor/poets").then((res) => res.json())
-  );
+  const { useGet } = useFetch();
+  const { data, isLoading, isError } = useGet(`ganjoor/poets`);
 
   if (isLoading) {
     return (

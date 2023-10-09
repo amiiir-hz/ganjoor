@@ -14,6 +14,7 @@ import ShareButton from "../Button/Button";
 import ShareModal from "../Modal/Modal";
 import Poet from "@/components/layout/Poet/Poet";
 import { useQuery } from "react-query";
+import { useFetch } from "@/hooks/useFetch";
 
 export default function ShareTable(props: {
   data: [];
@@ -25,21 +26,29 @@ export default function ShareTable(props: {
   const [modalId, setModalId] = useState<number>();
   const router = useRouter();
 
+  // const {
+  //   isLoading,
+  //   error,
+  //   data: modalData,
+  //   refetch,
+  // } = useQuery(
+  //   "myData",
+  //   () =>
+  //     fetch(`https://api.ganjoor.net/api/ganjoor/poet/${modalId}`).then((res) =>
+  //       res.json()
+  //     ),
+  //   {
+  //     enabled: false,
+  //   }
+  // );
+
+  const { useGet } = useFetch();
   const {
-    isLoading,
-    error,
     data: modalData,
+    isLoading,
+    isError,
     refetch,
-  } = useQuery(
-    "myData",
-    () =>
-      fetch(`https://api.ganjoor.net/api/ganjoor/poet/${modalId}`).then((res) =>
-        res.json()
-      ),
-    {
-      enabled: false,
-    }
-  );
+  } = useGet(`ganjoor/poet/${modalId}`, false);
 
   const data = [
     {
